@@ -237,6 +237,9 @@
   nav {
     background-color: #027b9a
   }
+  abbr {
+    text-decoration: none;
+  }
   .logo {
     width: 100px;
   }

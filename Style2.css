@@ -13,8 +13,10 @@
   }
 
     body {
-        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4) ),url(/images/background.jpg);
+        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4) ),url(images/background.jpg);
         background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         color: white;
     }
     #containersoal {

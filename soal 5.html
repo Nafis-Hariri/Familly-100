@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style2.css">
+    
+</head>
+<body>
+    <nav class="navbar fixed-top border-bottom">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-between">
+            <h1 >JADUL</h1>        
+          </div>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>   
+          </div>
+        </div>
+      </nav>
+      <div class="container text-center" id="containersoal">
+        <div class="row">
+          <div class="col-12">
+            <h2>Sebutkan olahraga air yang tidak dilakukan di kolam renang?</h2>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+            <div class="col-8">
+              <h4 class="border border-success bg-success-subtle text-success rounded-2 scale-up-hor-center" id="survey1a">
+                SELANCAR
+                <span class="badge text-bg-primary rounded-pill" >30</span>
+              </h4>              
+              <h4 class="border border-secondary rounded-2 text-center" id="survey1b">
+                 1
+              </h4>
+            </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <h4 class=" border border-success bg-success-subtle text-success rounded-2 scale-up-hor-center" id="survey2a">
+              JET SKI
+              <span class="badge text-bg-primary rounded-pill" >25</span>
+            </h4>
+            <h4 class="border border-secondary rounded-2 text-center" id="survey2b">
+              2
+           </h4>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <h4 class=" border border-success bg-success-subtle text-success rounded-2 scale-up-hor-center" id="survey3a">
+              DAYUNG
+              <span class="badge text-bg-primary rounded-pill" >20</span>
+            </h4>
+            <h4 class="border border-secondary rounded-2 text-center" id="survey3b">
+              3
+           </h4>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <h4 class=" border border-success bg-success-subtle text-success rounded-2 scale-up-hor-center" id="survey4a">
+              PERAHU LAYAR
+              <span class="badge text-bg-primary rounded-pill" >15</span>
+            </h4>
+            <h4 class="border border-secondary rounded-2 text-center" id="survey4b">
+              4
+           </h4>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <h4 class=" border border-success bg-success-subtle text-success rounded-2 scale-up-hor-center" id="survey5a">
+              ARUM JERAM
+              <span class="badge text-bg-primary rounded-pill" >10</span>               
+            </h4>
+            <h4 class="border border-secondary rounded-2 text-center" id="survey5b">
+              5
+           </h4>              
+          </div>
+        </div>
+      </div>
+      <div class="container" id="containerinput">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Masukkan Tebakan" aria-label="Recipient's username" aria-describedby="button-addon2" id="inputsurvey">
+                    <button class="btn btn-outline-success" type="submit" id="button-addon2" onclick="survey()">Button</button>
+                  </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-2 d-flex justify-content-center align-items-center border border-success border-2 rounded" id="poin">0</div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <h4 class=" border border-danger bg-danger-subtle text-danger text-center scale-up-hor-center rounded-2" id="salah">BELAJAR LAGI DEK....
+              <img src="images/close.png" alt="" class="close" id="tutup" onclick="ilang()">
+            </h4>
+          </div>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">   
+      </script>  
+      <script>
+        let survey1a = document.getElementById('survey1a') 
+        let survey2a = document.getElementById('survey2a') 
+        let survey3a = document.getElementById('survey3a')
+        let survey4a = document.getElementById('survey4a')
+        let survey5a = document.getElementById('survey5a')
+        let survey1b = document.getElementById('survey1b') 
+        let survey2b = document.getElementById('survey2b') 
+        let survey3b = document.getElementById('survey3b')
+        let survey4b = document.getElementById('survey4b')
+        let survey5b = document.getElementById('survey5b')
+        let inputsurvey = document.getElementById('inputsurvey')
+        let poin = document.getElementById('poin')
+        let salah = document.getElementById('salah')  
+        let tutup = document.getElementById('tutup')  
+        i = 0
+        a = 0
+        b = 0 
+        c = 0
+        d = 0
+
+  
+        survey1a.style.display = "none"
+        survey2a.style.display = "none"
+        survey3a.style.display = "none"
+        survey4a.style.display = "none"
+        survey5a.style.display = "none"
+        salah.style.display = "none"
+        nilaiAwal = poin.innerHTML
+        a = +(nilaiAwal)
+        function tambah(a,b) {
+          return a + b
+        }
+        function survey() {
+          inputsurveyA = inputsurvey.value.toUpperCase()
+          if(inputsurveyA == "INACO" && i == 0) {
+            i++
+            survey1a.style.display = "block"
+            survey1b.style.display = "none"
+            salah.style.display = "none"
+            poinAkhir = tambah(a,30)
+            poin.innerHTML = poinAkhir
+            return a = poinAkhir        
+          }else if(inputsurveyA == "KETUPAT" && a == 0) {
+            a++
+            survey2a.style.display = "block"
+            survey2b.style.display = "none"
+            salah.style.display = "none"
+            poinAkhir = tambah(a,25)
+            poin.innerHTML = poinAkhir
+            return a = poinAkhir        
+          }else if(inputsurveyA == "RENDANG" && b == 0) {
+            b++
+            survey3a.style.display = "block"
+            survey3b.style.display = "none"
+            salah.style.display = "none"
+            poinAkhir = tambah(a,20)
+            poin.innerHTML = poinAkhir
+            return a = poinAkhir     
+          }else if(inputsurveyA == "NASTAR" && c == 0) {
+            c++
+            survey4a.style.display = "block"
+            survey4b.style.display = "none"
+            salah.style.display = "none"
+            poinAkhir = tambah(a,15)
+            poin.innerHTML = poinAkhir
+            return a = poinAkhir
+          }else if(inputsurveyA == "OPOR" && d == 0) {
+            d++
+            survey5a.style.display = "block"
+            survey5b.style.display = "none"
+            salah.style.display = "none"
+            poinAkhir = tambah(a,10)
+            poin.innerHTML = poinAkhir
+            return a = poinAkhir
+          }else {
+            salah.style.display = "block"
+        } 
+        }  
+
+        function ilang() {
+          salah.style.display = "none"
+        }
+
+      </script> 
+</body>
+</html>     

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+ nav {
+    background-color: #027b9a;
+  }
+  h1 {
+    font-family: "Luckiest Guy";
+    letter-spacing: 3;
+    display: block;
+    margin: 0 auto;
+    color: white;
+    text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  }
+
+    body {
+        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4) ),url(/images/background.jpg);
+        background-size: cover;
+        color: white;
+    }
+    #containersoal {
+        margin-top: 80px;
+    }
+    .list-group {
+        margin-top: 20px;
+    }
+    #containerinput {
+        margin-top: 20px;
+    }
+    h4 {
+        margin-top: 5px;
+        text-align:center;
+        color: black;
+        padding: 10px 15px;
+    }
+    .col-8 {
+        margin:auto;
+    }
+    h3 {
+        margin-top: 10px;
+        padding: 8px 10px;
+    }
+    img {
+        width: 30px;
+    }
+    .close {
+        margin-left: 70vh;
+        cursor: pointer;
+    }
+   #survey1b,#survey2b,#survey3b,#survey4b,#survey5b {
+    color: aliceblue;
+   }
+   .scale-up-hor-center {
+	-webkit-animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+   }
+ @-webkit-keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}@keyframes scale-up-hor-center{0%{-webkit-transform:scaleX(.4);transform:scaleX(.4)}100%{-webkit-transform:scaleX(1);transform:scaleX(1)}}
+
+    

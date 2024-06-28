@@ -295,7 +295,7 @@
  
   width: auto;
   height: 200vh; 
-  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4)), url(/images/background.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4)), url(images/background.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

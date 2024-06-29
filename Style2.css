@@ -12,7 +12,7 @@
     text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
   }
 
-    body {
+    .bgimage {
         width: auto;
         height: 100vh;
         background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4) ),url(images/background.jpg);

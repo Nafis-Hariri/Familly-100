@@ -14,7 +14,7 @@
 
     .bgimage {
         width: auto;
-        height: 120vh;
+        height: 110vh;
         background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4) ),url(images/background.jpg);
         background-size: cover;
         background-position: center;

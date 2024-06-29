@@ -22,9 +22,8 @@
         color: white;
     }
     #containersoal {
-       display: flex;
-       justify-content: center; 
-       align-items: center;
+       margin-top: 10px;
+       padding-top: 33px;
     }
     .list-group {
         margin-top: 20px;

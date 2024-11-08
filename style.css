@@ -282,7 +282,8 @@
   }
   .nomor{
    transition:  0.3s ease-in-out;
-   width: 128px;
+   max-width: 100%;
+   height: auto;
    opacity: 1;
   }
   .nomor:hover {

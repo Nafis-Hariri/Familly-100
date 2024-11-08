@@ -293,10 +293,7 @@
     opacity: 0.3;
     width: 125px;
   }
- .bgimage{
- 
-  width: 100vw;
-  height: 200vh; 
+ .bgimage {
   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4)), url(images/background.jpg);
   background-attachment: fixed;
   background-size: cover;

@@ -816,7 +816,7 @@ input {
   object-fit: contain;
   padding: 6px;
   border-radius: 12px;
-  background: #fff;
+  background: #ffffff;
 }
 
 .kaki-merek strong {
@@ -840,7 +840,7 @@ input {
   display: inline-block;
   padding: 5px 11px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.0784313725490196);
   color: #e4eef7;
   font-size: 0.78rem;
   font-weight: 600;

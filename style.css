@@ -221,11 +221,6 @@ input {
   transition: width 0.2s ease, background-color 0.2s ease;
 }
 
-.titik--aktif {
-  width: 30px;
-  background: var(--teal);
-}
-
 .titik--sebagian {
   background: #9fd8e6;
 }
@@ -236,6 +231,12 @@ input {
 
 .titik--sempurna {
   background: var(--amber);
+}
+
+/* ditaruh paling akhir supaya soal yang sedang dibuka selalu terlihat jelas */
+.titik--aktif {
+  width: 30px;
+  background: var(--teal);
 }
 
 /* ---------- 6. Tombol ---------- */

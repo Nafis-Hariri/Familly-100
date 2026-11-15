@@ -7,6 +7,12 @@
    ===================================================================== */
 
 /* ---------- Dasar ---------- */
+/* Bootstrap tidak menyetel [hidden], sehingga display:flex dari
+   .input-group/.d-flex bisa menimpanya. Aturan ini mengembalikan fungsinya. */
+[hidden] {
+  display: none !important;
+}
+
 nav {
   background-color: #027b9a;
 }

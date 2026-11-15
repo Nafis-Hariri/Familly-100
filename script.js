@@ -185,6 +185,30 @@ function isiTeks(id, teks) {
   if (node) { node.textContent = teks; }
 }
 
+/* Isi wadah titik progres: satu titik per soal.
+   Warna titik: abu-abu (belum), biru muda (sebagian), hijau (selesai),
+   amber (semua jawaban benar), dan biru teal untuk soal yang sedang dibuka. */
+function gambarProgres(wadah, aktif) {
+  if (!wadah) { return; }
+  const data = bacaSemuaSoal();
+  wadah.innerHTML = "";
+  SOAL.forEach(function (_, i) {
+    const nomorSoal = i + 1;
+    const rek = data[nomorSoal];
+    let kelas = "titik";
+    if (rek && rek.selesai) {
+      kelas += rek.poin === jumlahMaksimal(nomorSoal) ? " titik--sempurna" : " titik--selesai";
+    } else if (rek && rek.poin > 0) {
+      kelas += " titik--sebagian";
+    }
+    if (nomorSoal === aktif) { kelas += " titik--aktif"; }
+    const titik = document.createElement("span");
+    titik.className = kelas;
+    titik.title = "Soal " + nomorSoal;
+    wadah.appendChild(titik);
+  });
+}
+
 /* ---------------------------------------------------------------------
    4. HALAMAN GAME (game.html?soal=N)
    --------------------------------------------------------------------- */
@@ -212,6 +236,8 @@ function initGame() {
   const tombolUlang = el("btn-ulang");
   const tombolLanjut = el("btn-lanjut");
   const kotakPesan = el("pesan");
+  const nyawa = el("nyawa");
+  const progres = el("progres");
 
   isiTeks("judul-soal", "Soal " + nomor + " dari " + SOAL.length);
   isiTeks("pertanyaan", soal.tanya);
@@ -246,19 +272,32 @@ function initGame() {
       baris.innerHTML =
         '<span class="nomor-jawaban">' + (indeks + 1) + "</span>" +
         '<span class="teks-jawaban"></span>' +
-        '<span class="badge text-bg-primary rounded-pill poin-jawaban">' + jawaban.poin + "</span>";
-      baris.querySelector(".teks-jawaban").textContent = terbuka ? jawaban.teks : "? ? ?";
-      if (terbuka && indeks === sorot) { baris.classList.add("scale-up-hor-center"); }
+        '<span class="poin-jawaban">' + jawaban.poin + "</span>";
+      const teks = baris.querySelector(".teks-jawaban");
+      teks.textContent = terbuka ? jawaban.teks : "? ? ?";
+      teks.classList.toggle("teks-jawaban--kosong", !terbuka);
+      if (terbuka && indeks === sorot) { baris.classList.add("baris-jawaban--buka"); }
       papan.appendChild(baris);
     });
     sorot = null;
   }
 
+  // tiga titik kesempatan: yang padam = sudah terpakai
+  function perbaruiNyawa() {
+    if (!nyawa) { return; }
+    const sisa = Math.max(0, MAKS_SALAH - state.salah);
+    nyawa.querySelectorAll(".nyawa-titik").forEach(function (titik, i) {
+      titik.classList.toggle("padam", i >= sisa);
+    });
+    nyawa.setAttribute("aria-label", "Kesempatan tersisa " + sisa + " dari " + MAKS_SALAH);
+  }
+
   function perbarui() {
     const data = bacaSemuaSoal();
     isiTeks("poin-soal", state.poin);
-    isiTeks("sisa-kesempatan", Math.max(0, MAKS_SALAH - state.salah));
     isiTeks("skor-total", skorTotal(data));
+    perbaruiNyawa();
+    gambarProgres(progres, nomor);
     renderPapan();
 
     if (state.selesai) {
@@ -361,6 +400,7 @@ function initGame() {
    --------------------------------------------------------------------- */
 function initIndex() {
   const kartu = document.querySelectorAll("[data-soal]");
+  const progresMenu = el("progres-menu");
 
   function segarkan() {
     const data = bacaSemuaSoal();
@@ -368,7 +408,9 @@ function initIndex() {
     kartu.forEach(function (tautan) {
       const nomor = Number(tautan.dataset.soal);
       const rek = data[nomor];
-      const label = tautan.parentElement.querySelector(".skor-soal");
+      // label skor boleh berada di dalam kartu atau di sebelahnya
+      const label = tautan.querySelector(".skor-soal") ||
+        (tautan.parentElement ? tautan.parentElement.querySelector(".skor-soal") : null);
       const selesai = Boolean(rek && rek.selesai);
 
       tautan.classList.toggle("soal-selesai", selesai);
@@ -396,6 +438,7 @@ function initIndex() {
 
     isiTeks("skor-total", skorTotal(data));
     isiTeks("skor-maksimal", skorMaksimalTotal());
+    gambarProgres(progresMenu, null);
 
     const selesaiSemua = SOAL.every(function (_, i) { return data[i + 1] && data[i + 1].selesai; });
     isiTeks("status-permainan", selesaiSemua ? "Semua soal sudah dimainkan. Tekan Ulangi untuk mulai lagi." : "");

@@ -817,9 +817,6 @@ input {
   padding: 6px;
   border-radius: 12px;
   background: #fff;
-  /* seluruh logo jadi hitam pekat: filter menggelapkan warna, transparansi tetap utuh.
-     Hapus satu baris ini kalau mau kembali ke warna asli logo. */
-  filter: brightness(0);
 }
 
 .kaki-merek strong {

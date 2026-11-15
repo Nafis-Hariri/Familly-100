@@ -35,8 +35,9 @@ const SOAL = [
     jawaban: [
       { teks: "MINTA NOMOR", poin: 30 },
       { teks: "BERPELUKAN", poin: 25 },
-      // ditampilkan "JALAN-JALAN", tapi ketikan "JALAN JALAN" juga sah
-      { teks: "JALAN-JALAN", poin: 20, varian: ["JALAN JALAN"] },
+      // papan menampilkan "JALAN-JALAN"; ketikan "JALAN JALAN" juga diterima
+      // karena normalisasi mengubah tanda hubung menjadi spasi
+      { teks: "JALAN-JALAN", poin: 20 },
       { teks: "NGOBROL", poin: 15 },
       { teks: "BERSALAMAN", poin: 10 }
     ]
@@ -234,6 +235,8 @@ function initGame() {
     kotakPesan.hidden = !teks;
   }
 
+  let sorot = null; // baris yang baru dibuka, untuk animasi
+
   function renderPapan() {
     papan.innerHTML = "";
     soal.jawaban.forEach(function (jawaban, indeks) {
@@ -245,9 +248,10 @@ function initGame() {
         '<span class="teks-jawaban"></span>' +
         '<span class="badge text-bg-primary rounded-pill poin-jawaban">' + jawaban.poin + "</span>";
       baris.querySelector(".teks-jawaban").textContent = terbuka ? jawaban.teks : "? ? ?";
+      if (terbuka && indeks === sorot) { baris.classList.add("scale-up-hor-center"); }
       papan.appendChild(baris);
-      if (terbuka) { baris.classList.add("scale-up-hor-center"); }
     });
+    sorot = null;
   }
 
   function perbarui() {
@@ -297,6 +301,7 @@ function initGame() {
         tampilkanPesan("SUDAH DISEBUT", "info");
       } else {
         state.terbuka.add(cocok);
+        sorot = cocok;
         state.poin += soal.jawaban[cocok].poin;
         tampilkanPesan("BENAR! +" + soal.jawaban[cocok].poin, "benar");
         if (state.terbuka.size === soal.jawaban.length) { selesaikan("menang"); }
@@ -346,9 +351,6 @@ function initGame() {
   // tampilkan pesan kalau soal sudah pernah diselesaikan sebelumnya
   if (state.selesai) {
     tampilkanPesan(state.hasil === "menang" ? "Soal ini sudah kamu selesaikan." : "Soal ini sudah berakhir.", "info");
-  } else {
-    input.value = "";
-    input.focus();
   }
 }
 

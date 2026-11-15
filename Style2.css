@@ -218,6 +218,12 @@ body.bgimage {
   margin-top: 20px;
 }
 
+/* agar baris jawaban tetap di tengah seperti sebelumnya */
+.row > .col-8 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h4 {
   margin-top: 5px;
   text-align: center;

@@ -1,18 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 /* =====================================================================
-   Style2.css — dipakai halaman game (game.html) dan 6 halaman soal lama.
-   Bagian "halaman soal lama" di paling bawah hanya untuk kompatibilitas;
-   bisa dihapus kalau file "soal N.html" sudah tidak dipakai.
+   Style2.css — HANYA untuk halaman soal lama (soal 1.html ... soal 6.html).
+   Berkas ini sengaja dibiarkan sebagai cadangan. Aplikasi utama sekarang
+   memakai style.css (index.html dan game.html) yang tidak butuh Bootstrap.
+
+   Kalau keenam "soal N.html" sudah dihapus, berkas ini boleh ikut dihapus.
    ===================================================================== */
 
 /* ---------- Dasar ---------- */
-/* Bootstrap tidak menyetel [hidden], sehingga display:flex dari
-   .input-group/.d-flex bisa menimpanya. Aturan ini mengembalikan fungsinya. */
-[hidden] {
-  display: none !important;
-}
-
 nav {
   background-color: #027b9a;
 }
@@ -35,187 +31,11 @@ body.bgimage {
   color: white;
 }
 
-/* ---------- Bilah atas ---------- */
 .navbar-brand h1 {
   font-size: 1.6rem;
 }
 
-.nav-info {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.9rem;
-  color: #eaf7fb;
-}
-
-/* ---------- Area permainan ---------- */
-.game-main {
-  margin-top: 90px;
-  padding-bottom: 40px;
-}
-
-.pertanyaan {
-  font-size: 1.25rem;
-  text-align: center;
-  margin-bottom: 1.25rem;
-}
-
-@media (min-width: 768px) {
-  .pertanyaan { font-size: 1.6rem; }
-}
-
-.papan-jawaban {
-  margin-bottom: 1.25rem;
-}
-
-.baris-jawaban {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.6rem;
-  padding: 0.5rem 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.35);
-}
-
-.baris-jawaban .nomor-jawaban {
-  flex: 0 0 1.75rem;
-  text-align: center;
-  font-weight: 700;
-  color: #cfe9f2;
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
-  padding-right: 0.6rem;
-}
-
-.baris-jawaban .teks-jawaban {
-  flex: 1 1 auto;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  word-break: break-word;
-}
-
-.baris-jawaban .poin-jawaban {
-  flex: 0 0 auto;
-  visibility: hidden; /* skor baru tampil setelah jawaban terbuka */
-}
-
-.baris-jawaban.terbuka {
-  border-color: #75d69c;
-  background-color: rgba(37, 118, 76, 0.55);
-}
-
-.baris-jawaban.terbuka .poin-jawaban {
-  visibility: visible;
-}
-
-/* ---------- Skor ---------- */
-.papan-skor {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.kartu-skor {
-  flex: 1 1 8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem 0.75rem;
-  border: 2px solid #75d69c;
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.35);
-}
-
-.kartu-skor-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #cfe9f2;
-}
-
-.kartu-skor-nilai {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-/* ---------- Pesan ---------- */
-.pesan {
-  text-align: center;
-  font-weight: 700;
-  padding: 0.55rem 0.9rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.pesan--salah {
-  border: 2px solid #dc3545;
-  background-color: rgba(220, 53, 69, 0.25);
-  color: #ffd7db;
-}
-
-.pesan--benar {
-  border: 2px solid #75d69c;
-  background-color: rgba(37, 118, 76, 0.35);
-  color: #d9ffe8;
-}
-
-.pesan--info {
-  border: 2px solid #ffc107;
-  background-color: rgba(255, 193, 7, 0.2);
-  color: #fff3cd;
-}
-
-/* ---------- Panel selesai ---------- */
-.panel-selesai {
-  text-align: center;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.45);
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.panel-selesai-judul {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.panel-selesai-skor {
-  margin-bottom: 0.75rem;
-}
-
-.tautan-menu {
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-.tautan-menu a {
-  color: #cfe9f2;
-}
-
-/* ---------- Animasi ---------- */
-.scale-up-hor-center {
-  -webkit-animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-@-webkit-keyframes scale-up-hor-center {
-  0% { -webkit-transform: scaleX(.4); transform: scaleX(.4); }
-  100% { -webkit-transform: scaleX(1); transform: scaleX(1); }
-}
-
-@keyframes scale-up-hor-center {
-  0% { transform: scaleX(.4); }
-  100% { transform: scaleX(1); }
-}
-
-/* =====================================================================
-   Halaman soal lama (soal 1.html ... soal 6.html)
-   ===================================================================== */
+/* ---------- Tata letak halaman soal ---------- */
 #containersoal {
   margin-top: 90px;
 }
@@ -257,6 +77,26 @@ h3 {
   cursor: pointer;
 }
 
-#survey1b, #survey2b, #survey3b, #survey4b, #survey5b {
+#survey1b,
+#survey2b,
+#survey3b,
+#survey4b,
+#survey5b {
   color: aliceblue;
+}
+
+/* ---------- Animasi buka baris (dipakai halaman soal lama) ---------- */
+.scale-up-hor-center {
+  -webkit-animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes scale-up-hor-center {
+  0% { -webkit-transform: scaleX(.4); transform: scaleX(.4); }
+  100% { -webkit-transform: scaleX(1); transform: scaleX(1); }
+}
+
+@keyframes scale-up-hor-center {
+  0% { transform: scaleX(.4); }
+  100% { transform: scaleX(1); }
 }

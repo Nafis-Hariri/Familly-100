@@ -1,9 +1,8 @@
 /* =====================================================================
    JADUL — Survey Family 100
-   style.css : design system untuk index.html dan game.html
-   Tanpa Bootstrap. Satu-satunya dependensi luar: Google Fonts.
-   Halaman soal lama (soal 1-6.html) TIDAK memakai berkas ini;
-   mereka memakai Style2.css.
+   style.css : satu-satunya berkas gaya untuk index.html dan game.html.
+   Tanpa Bootstrap dan tanpa dependensi luar selain Google Fonts,
+   jadi tetap berjalan penuh saat dibuka lewat file://
    ===================================================================== */
 
 /* ---------- 1. Token ---------- */

@@ -858,7 +858,36 @@ input {
   color: #8b9db0;
 }
 
-/* ---------- 16. Hormati preferensi gerak ---------- */
+/* ---------- 16. Layar sempit ---------- */
+@media (max-width: 430px) {
+  .merek-sub,
+  .chip-label {
+    display: none;
+  }
+
+  .bilah-atas-dalam {
+    gap: 8px;
+  }
+
+  .chip-skor {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .titik {
+    width: 14px;
+  }
+
+  .titik--aktif {
+    width: 22px;
+  }
+
+  .hero-aksi .tombol--utama {
+    width: 100%;
+  }
+}
+
+/* ---------- 17. Hormati preferensi gerak ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

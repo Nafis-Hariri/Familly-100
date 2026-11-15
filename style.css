@@ -181,7 +181,6 @@ input {
 .merek-sub {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--redup);
   padding: 2px 8px;
   border-radius: 999px;
   background: var(--teal-tint);

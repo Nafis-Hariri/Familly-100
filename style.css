@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -251,11 +253,10 @@
     margin: 0 10px ;
   }
   h2 {
-    font-family: 'Mona Sans',sans-serif;
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
   }
   p {
-    font-family: "Roboto", ;
-    
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
   }
   body {
     margin-top: 10px;
@@ -263,7 +264,6 @@
   }
   #carousel1 {
     margin: 65px auto;
-    ;
   }
   #carousel2 {
     color: white;
@@ -275,10 +275,10 @@
     padding-bottom: 5px;
   } 
   #atas {
-   margin: 20px 0 100px ;
+   margin: 20px 0 3rem;
   }
   #bawah {
-   margin-top: 50px 0 px ;
+   margin-top: 1rem;
   }
   .nomor{
    transition:  0.3s ease-in-out;
@@ -289,10 +289,45 @@
   .nomor:hover {
     opacity: 0.7;
   }
-  .disabled {
+  /* Soal yang sudah diselesaikan: tautannya mati, tanpa kelas Bootstrap
+     (kelas .disabled Bootstrap hanya bekerja untuk .btn dan .nav-link) */
+  .soal-selesai {
     pointer-events: none;
-    opacity: 0.3;
-    width: 125px;
+    opacity: 0.35;
+    filter: grayscale(1);
+  }
+
+  .skor-soal {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: #cfe9f2;
+  }
+
+  .skor-soal.teks-selesai {
+    color: #9ff0c0;
+    font-weight: 700;
+  }
+
+  .total-panel {
+    margin: 0 0 3rem;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+
+  .total-skor {
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .total-status {
+    font-size: 0.9rem;
+    min-height: 1.2em;
+    margin-bottom: 0.75rem;
   }
  .bgimage {
   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4)), url(images/background.jpg);
@@ -301,18 +336,13 @@
   background-position: center;
   }
 
- .container animasi {
- display: flex;  
- height: 100%;
- align-items: center;
- font-weight: 800;
- } 
 
  svg {
  display: block;
  font: 10.5em 'Montserrat';
- width: 960px;
- height: 200px;
+ width: 100%;
+ max-width: 960px;
+ height: auto;
  margin: 0 auto;
  }
 
